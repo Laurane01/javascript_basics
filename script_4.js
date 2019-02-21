@@ -76,3 +76,51 @@ array.forEach (journalist => {
 console.log('Nombre de majuscules');
 console.log(number4);
 
+//handles qui contiennent un underscore
+
+let underscore = 0;
+array.forEach(journalist => {
+	if (journalist.includes('_')) {
+		underscore++;
+	}
+});
+console.log(`Nombre de handles avec underscore : ${underscore}`);
+
+// Par ordre alphabetique
+let new_array= [];
+array.forEach(journalist => {
+	new_array.push(journalist);
+});
+
+// Trie
+new_array.sort(function (a, b) {
+    var x = a.toUpperCase(),
+        y = b.toUpperCase();
+    if (x > y) {
+        return 1;
+    }
+    if (x < y) {
+        return -1;
+    }
+    return 0;
+});
+console.log(new_array);
+
+// Les 50 plus courts
+let small_array = [];
+array.forEach(journalist => {
+	small_array.push(journalist);
+});
+
+// Trie
+small_array.sort(function (a, b) {
+  return a.length - b.length;
+});
+console.log('50 journaleux les plus courts :')
+//Slice les 50 premiers
+console.log(small_array.slice(0, 50))
+
+
+// Position de @epenser
+console.log('Position de @epenser :')
+console.log(array.indexOf('@epenser') + 1)
