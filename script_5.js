@@ -18,54 +18,54 @@ let smallest_other = '';
 let biggest_value = 0;
 let smallest_value = 1;
 let inf6000 = [];
-let laPlusChereInf6000 = '';
-let valuePlusChereInf6000 = 0;
-let numberCoin = 0;
+let more_expensive_Inf6000 = '';
+let more_expensive_value_Inf6000 = 0;
+let number_coin = 0;
 
 for(let coin in myHash) {
 // La plus grosse valeur
-	if(Number(myHash[coin].substring(1)) > valDeLaPlusGrosse) {
-		laPlusGrosse = coin;
-		valDeLaPlusGrosse = Number(myHash[coin].substring(1));
+	if(Number(myHash[coin].substring(1)) > biggest_value) {
+		biggest = coin;
+		biggest_value = Number(myHash[coin].substring(1));
 	};
 // La ou les crypto qui ont la plus petite valeur
-	if(Number(myHash[coin].substring(1)) < valDeLaPlusPetite) {
-		laPlusPetite = coin;
-		valDeLaPlusPetite = Number(myHash[coin].substring(1));
-	} else if(Number(myHash[coin].substring(1)) === valDeLaPlusPetite) {
-		lautrePlusPetite = coin;
+	if(Number(myHash[coin].substring(1)) < smallest_value) {
+		smallest = coin;
+		smallest_value = Number(myHash[coin].substring(1));
+	} else if(Number(myHash[coin].substring(1)) === smallest_value) {
+		smallest_other = coin;
 	};
 // Le nombre de crypto contenant le mot "coin"
 	if(coin.includes('coin')) {
-		numberCoin++;
+		number_coin++;
 	};
 // Les devises, dont le cours est inférieur à 6000
 	if(Number(myHash[coin].substring(1)) < 6000) {
 		inf6000.push(coin);
 // La devise la plus chère parmi celles dont le cours est inférieur à 6000
-		if(Number(myHash[coin].substring(1)) > valuePlusChereInf6000) {
-			laPlusChereInf6000 = coin;
-			valuePlusChereInf6000 = Number(myHash[coin].substring(1));
+		if(Number(myHash[coin].substring(1)) > more_expensive_value_Inf6000) {
+			more_expensive_Inf6000 = coin;
+			more_expensive_value_Inf6000 = Number(myHash[coin].substring(1));
 		};
 	};
 };
 
-console.log('La ou les crypto qui ont la plus grosse valeur :');
-console.log(laPlusGrosse);
-console.log(valDeLaPlusGrosse);
+console.log('Biggest value of crypto :');
+console.log(biggest);
+console.log(biggest_value);
 
-console.log('La ou les crypto qui ont la plus petite valeur :');
-console.log(laPlusPetite);
-console.log(lautrePlusPetite);
-console.log(valDeLaPlusPetite);
+console.log('Smallest value of crypto:');
+console.log(smallest);
+console.log(smallest_other);
+console.log(smallest_value);
 
-console.log('Le nombre de crypto contenant le mot "coin"')
-console.log(numberCoin);
+console.log('With coin')
+console.log(number_coin);
 
-console.log("Les devises, dont le cours est inférieur à 6000")
+console.log("COins inf 6000")
 console.log(inf6000)
 
-console.log("La devise la plus chère parmi celles dont le cours est inférieur à 6000")
-console.log(laPlusChereInf6000)
-console.log(valuePlusChereInf6000)
+console.log("Devise plus chere mais inf a 6000")
+console.log(more_expensive_Inf6000)
+console.log(more_expensive_value_Inf6000)
 
